@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D019C6B21EE5ED1000DEF8A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019C6B11EE5ED1000DEF8A6 /* UITextFieldExtension.swift */; };
 		D02E08EC1ED1D2B400AC908A /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E08EB1ED1D2B400AC908A /* Consommation.swift */; };
 		D02E08F11ED2189F00AC908A /* VoituresConsommationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E08F01ED2189F00AC908A /* VoituresConsommationsData.swift */; };
-		D033D9441EE326A300725344 /* appli suivi conso logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D033D9431EE326A300725344 /* appli suivi conso logo.png */; };
+		D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9541EE4607000725344 /* PersistencyManager.swift */; };
+		D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9561EE48BA900725344 /* MyCarAPI.swift */; };
+		D04F0BD11EE5CE390058314D /* AddVoitureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */; };
 		D05B6A931ED062CE00C7FE32 /* VoitureBlanche.png in Resources */ = {isa = PBXBuildFile; fileRef = D05B6A8C1ED062CD00C7FE32 /* VoitureBlanche.png */; };
 		D05B6A941ED062CE00C7FE32 /* VoitureBleue.png in Resources */ = {isa = PBXBuildFile; fileRef = D05B6A8D1ED062CD00C7FE32 /* VoitureBleue.png */; };
 		D05B6A951ED062CE00C7FE32 /* VoitureJaune.png in Resources */ = {isa = PBXBuildFile; fileRef = D05B6A8E1ED062CD00C7FE32 /* VoitureJaune.png */; };
@@ -28,9 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D019C6B11EE5ED1000DEF8A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		D02E08EB1ED1D2B400AC908A /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consommation.swift; sourceTree = "<group>"; };
 		D02E08F01ED2189F00AC908A /* VoituresConsommationsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoituresConsommationsData.swift; sourceTree = "<group>"; };
-		D033D9431EE326A300725344 /* appli suivi conso logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "appli suivi conso logo.png"; path = "../../../../../../../Volumes/TOSHIBA/Documents/Programmation/Images Projets/appli conso/appli suivi conso logo.png"; sourceTree = "<group>"; };
+		D033D9541EE4607000725344 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		D033D9561EE48BA900725344 /* MyCarAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarAPI.swift; sourceTree = "<group>"; };
+		D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVoitureViewController.swift; sourceTree = "<group>"; };
 		D05B6A8C1ED062CD00C7FE32 /* VoitureBlanche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VoitureBlanche.png; path = ../../../../VoitureBlanche.png; sourceTree = "<group>"; };
 		D05B6A8D1ED062CD00C7FE32 /* VoitureBleue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VoitureBleue.png; path = ../../../../VoitureBleue.png; sourceTree = "<group>"; };
 		D05B6A8E1ED062CD00C7FE32 /* VoitureJaune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VoitureJaune.png; path = ../../../../VoitureJaune.png; sourceTree = "<group>"; };
@@ -61,18 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D02E08EF1ED217FE00AC908A /* DataTest */ = {
+		D02E08EF1ED217FE00AC908A /* API */ = {
 			isa = PBXGroup;
 			children = (
 				D02E08F01ED2189F00AC908A /* VoituresConsommationsData.swift */,
+				D033D9541EE4607000725344 /* PersistencyManager.swift */,
+				D033D9561EE48BA900725344 /* MyCarAPI.swift */,
 			);
-			name = DataTest;
+			name = API;
 			sourceTree = "<group>";
 		};
 		D05B6A8B1ECE1FD300C7FE32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D033D9431EE326A300725344 /* appli suivi conso logo.png */,
 				D05B6A8C1ED062CD00C7FE32 /* VoitureBlanche.png */,
 				D05B6A8D1ED062CD00C7FE32 /* VoitureBleue.png */,
 				D05B6A8E1ED062CD00C7FE32 /* VoitureJaune.png */,
@@ -84,12 +91,13 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		D05B6A9C1ED19AA800C7FE32 /* ViewControllers */ = {
+		D05B6A9C1ED19AA800C7FE32 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D0C86AD01EABDAC000534FB2 /* VoituresViewController.swift */,
+				D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		D05B6AA11ED1AEDB00C7FE32 /* Models */ = {
@@ -101,13 +109,13 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D07D7D471ED4C84F00E620B0 /* TableViewCell */ = {
+		D07D7D471ED4C84F00E620B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D05B6A9A1ED064D900C7FE32 /* VoitureTableViewCell.swift */,
 				D07D7D481ED4CA0B00E620B0 /* ConsommationTableViewCell.swift */,
 			);
-			name = TableViewCell;
+			name = View;
 			sourceTree = "<group>";
 		};
 		D0C86AC21EABDAC000534FB2 = {
@@ -129,10 +137,11 @@
 		D0C86ACD1EABDAC000534FB2 /* My Car */ = {
 			isa = PBXGroup;
 			children = (
-				D07D7D471ED4C84F00E620B0 /* TableViewCell */,
-				D02E08EF1ED217FE00AC908A /* DataTest */,
+				D0D6EA071EE5E96B00A7FC9F /* Extensions */,
+				D07D7D471ED4C84F00E620B0 /* View */,
+				D02E08EF1ED217FE00AC908A /* API */,
 				D05B6AA11ED1AEDB00C7FE32 /* Models */,
-				D05B6A9C1ED19AA800C7FE32 /* ViewControllers */,
+				D05B6A9C1ED19AA800C7FE32 /* Controllers */,
 				D05B6A8B1ECE1FD300C7FE32 /* Images */,
 				D0C86ACE1EABDAC000534FB2 /* AppDelegate.swift */,
 				D0C86AD21EABDAC000534FB2 /* Main.storyboard */,
@@ -141,6 +150,14 @@
 				D0C86ADA1EABDAC000534FB2 /* Info.plist */,
 			);
 			path = "My Car";
+			sourceTree = "<group>";
+		};
+		D0D6EA071EE5E96B00A7FC9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D019C6B11EE5ED1000DEF8A6 /* UITextFieldExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D05B6A951ED062CE00C7FE32 /* VoitureJaune.png in Resources */,
-				D033D9441EE326A300725344 /* appli suivi conso logo.png in Resources */,
 				D05B6A931ED062CE00C7FE32 /* VoitureBlanche.png in Resources */,
 				D05B6A981ED062CE00C7FE32 /* VoitureRouge.png in Resources */,
 				D05B6A991ED062CE00C7FE32 /* VoitureVerte.png in Resources */,
@@ -225,12 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02E08EC1ED1D2B400AC908A /* Consommation.swift in Sources */,
+				D04F0BD11EE5CE390058314D /* AddVoitureViewController.swift in Sources */,
 				D0C86AD11EABDAC000534FB2 /* VoituresViewController.swift in Sources */,
 				D05B6AA31ED1AF0D00C7FE32 /* Voiture.swift in Sources */,
 				D0C86ACF1EABDAC000534FB2 /* AppDelegate.swift in Sources */,
+				D019C6B21EE5ED1000DEF8A6 /* UITextFieldExtension.swift in Sources */,
 				D07D7D491ED4CA0B00E620B0 /* ConsommationTableViewCell.swift in Sources */,
 				D05B6A9B1ED064D900C7FE32 /* VoitureTableViewCell.swift in Sources */,
 				D02E08F11ED2189F00AC908A /* VoituresConsommationsData.swift in Sources */,
+				D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */,
+				D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,11 +373,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CKF89ZK6WX;
 				INFOPLIST_FILE = "My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.itomorrow.My-Car";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -366,11 +388,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CKF89ZK6WX;
 				INFOPLIST_FILE = "My Car/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.itomorrow.My-Car";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
