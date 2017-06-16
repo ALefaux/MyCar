@@ -19,6 +19,7 @@
 		D0C86AD41EABDAC000534FB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C86AD21EABDAC000534FB2 /* Main.storyboard */; };
 		D0C86AD61EABDAC000534FB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C86AD51EABDAC000534FB2 /* Assets.xcassets */; };
 		D0C86AD91EABDAC000534FB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C86AD71EABDAC000534FB2 /* LaunchScreen.storyboard */; };
+		D0FF53201EF1BA410045FCD0 /* VoitureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF531F1EF1BA410045FCD0 /* VoitureCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D0C86AD51EABDAC000534FB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C86AD81EABDAC000534FB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0C86ADA1EABDAC000534FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0FF531F1EF1BA410045FCD0 /* VoitureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoitureCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				D05B6A9A1ED064D900C7FE32 /* VoitureTableViewCell.swift */,
 				D07D7D481ED4CA0B00E620B0 /* ConsommationTableViewCell.swift */,
+				D0FF531F1EF1BA410045FCD0 /* VoitureCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				D05B6A9B1ED064D900C7FE32 /* VoitureTableViewCell.swift in Sources */,
 				D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */,
 				D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */,
+				D0FF53201EF1BA410045FCD0 /* VoitureCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
