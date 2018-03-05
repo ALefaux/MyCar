@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316FE39725D1075B13077955 /* Pods_My_Car.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */; };
+		771CE97A204A091E00DC8EEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 771CE979204A091D00DC8EEF /* GoogleService-Info.plist */; };
+		771CE97C204B0E4A00DC8EEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771CE97B204B0E4A00DC8EEF /* LoginViewController.swift */; };
+		7765880C204B264D001FBDE2 /* ConnexionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765880B204B264D001FBDE2 /* ConnexionHelper.swift */; };
+		7765880F204BFB5F001FBDE2 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7765880E204BFB5F001FBDE2 /* background.jpg */; };
 		D02E08EC1ED1D2B400AC908A /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E08EB1ED1D2B400AC908A /* Consommation.swift */; };
 		D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9541EE4607000725344 /* PersistencyManager.swift */; };
 		D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9561EE48BA900725344 /* MyCarAPI.swift */; };
@@ -23,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29AFF50AE81260A81D2DCBB8 /* Pods-My Car.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Car.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Car/Pods-My Car.release.xcconfig"; sourceTree = "<group>"; };
+		4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Car.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		771CE979204A091D00DC8EEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		771CE97B204B0E4A00DC8EEF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7765880B204B264D001FBDE2 /* ConnexionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionHelper.swift; sourceTree = "<group>"; };
+		7765880E204BFB5F001FBDE2 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		871F454262D366F5D7820DD0 /* Pods-My Car.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Car.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Car/Pods-My Car.debug.xcconfig"; sourceTree = "<group>"; };
 		D02E08EB1ED1D2B400AC908A /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consommation.swift; sourceTree = "<group>"; };
 		D033D9541EE4607000725344 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		D033D9561EE48BA900725344 /* MyCarAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarAPI.swift; sourceTree = "<group>"; };
@@ -45,12 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316FE39725D1075B13077955 /* Pods_My_Car.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A7FF61F23B729BC3FA13EDF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				871F454262D366F5D7820DD0 /* Pods-My Car.debug.xcconfig */,
+				29AFF50AE81260A81D2DCBB8 /* Pods-My Car.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7765880A204B2620001FBDE2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7765880B204B264D001FBDE2 /* ConnexionHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8853BC11119249802BEB06E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D02E08EF1ED217FE00AC908A /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +101,7 @@
 		D05B6A8B1ECE1FD300C7FE32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7765880E204BFB5F001FBDE2 /* background.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -72,6 +111,7 @@
 			children = (
 				D0C86AD01EABDAC000534FB2 /* VoituresViewController.swift */,
 				D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */,
+				771CE97B204B0E4A00DC8EEF /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -100,6 +140,8 @@
 			children = (
 				D0C86ACD1EABDAC000534FB2 /* My Car */,
 				D0C86ACC1EABDAC000534FB2 /* Products */,
+				0A7FF61F23B729BC3FA13EDF /* Pods */,
+				8853BC11119249802BEB06E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +156,7 @@
 		D0C86ACD1EABDAC000534FB2 /* My Car */ = {
 			isa = PBXGroup;
 			children = (
+				7765880A204B2620001FBDE2 /* Helpers */,
 				D07D7D471ED4C84F00E620B0 /* View */,
 				D02E08EF1ED217FE00AC908A /* API */,
 				D05B6AA11ED1AEDB00C7FE32 /* Models */,
@@ -124,6 +167,7 @@
 				D0C86AD51EABDAC000534FB2 /* Assets.xcassets */,
 				D0C86AD71EABDAC000534FB2 /* LaunchScreen.storyboard */,
 				D0C86ADA1EABDAC000534FB2 /* Info.plist */,
+				771CE979204A091D00DC8EEF /* GoogleService-Info.plist */,
 			);
 			path = "My Car";
 			sourceTree = "<group>";
@@ -135,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0C86ADD1EABDAC000534FB2 /* Build configuration list for PBXNativeTarget "My Car" */;
 			buildPhases = (
+				5706AF201EFDA915111BEFC0 /* [CP] Check Pods Manifest.lock */,
 				D0C86AC71EABDAC000534FB2 /* Sources */,
 				D0C86AC81EABDAC000534FB2 /* Frameworks */,
 				D0C86AC91EABDAC000534FB2 /* Resources */,
+				32DC73A6309C7D7CA40F8C8A /* [CP] Embed Pods Frameworks */,
+				46675CB2A024E07ACD9F648F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,12 +202,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ITomorrow;
 				TargetAttributes = {
 					D0C86ACA1EABDAC000534FB2 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = CKF89ZK6WX;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -190,11 +238,78 @@
 			files = (
 				D0C86AD91EABDAC000534FB2 /* LaunchScreen.storyboard in Resources */,
 				D0C86AD61EABDAC000534FB2 /* Assets.xcassets in Resources */,
+				7765880F204BFB5F001FBDE2 /* background.jpg in Resources */,
+				771CE97A204A091E00DC8EEF /* GoogleService-Info.plist in Resources */,
 				D0C86AD41EABDAC000534FB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32DC73A6309C7D7CA40F8C8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-My Car/Pods-My Car-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Car/Pods-My Car-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46675CB2A024E07ACD9F648F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-My Car/Pods-My Car-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Car/Pods-My Car-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5706AF201EFDA915111BEFC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-My Car-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0C86AC71EABDAC000534FB2 /* Sources */ = {
@@ -210,7 +325,9 @@
 				D05B6A9B1ED064D900C7FE32 /* VoitureTableViewCell.swift in Sources */,
 				D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */,
 				D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */,
+				7765880C204B264D001FBDE2 /* ConnexionHelper.swift in Sources */,
 				D0FF53201EF1BA410045FCD0 /* VoitureCollectionViewCell.swift in Sources */,
+				771CE97C204B0E4A00DC8EEF /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +363,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -254,7 +373,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -296,7 +419,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -304,7 +429,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -331,6 +460,7 @@
 		};
 		D0C86ADE1EABDAC000534FB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 871F454262D366F5D7820DD0 /* Pods-My Car.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -340,12 +470,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.itomorrow.My-Car";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		D0C86ADF1EABDAC000534FB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29AFF50AE81260A81D2DCBB8 /* Pods-My Car.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -355,7 +487,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.itomorrow.My-Car";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

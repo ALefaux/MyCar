@@ -50,5 +50,9 @@ class VoituresViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Doit afficher le détail de la voiture
+        print("Did select row at \(indexPath)")
+    }
 }
 
