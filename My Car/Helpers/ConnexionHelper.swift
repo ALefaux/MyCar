@@ -37,7 +37,7 @@ class ConnexionHelper {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-                print(user?.displayName)
+                print(user!.displayName)
                 print(user!)
             }
         }

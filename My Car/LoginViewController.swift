@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
@@ -39,11 +41,41 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
     }
     
     @IBAction func loginWithFacebook(_ sender: Any) {
-        switchToNavigationViewController()
+        //switchToNavigationViewController()
+        
+        let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if (result?.isCancelled)! {
+                    return
+                }
+                
+                if let fbLoginResult = result as? FBSDKLoginManagerLoginResult {
+                    if fbLoginResult.grantedPermissions.contains("email") {
+                        self.getFBUserData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection, result, error) in
+                if (error == nil){
+                    //everything works print the user data
+                    print(result)
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+        }
     }
     
     @IBAction func loginWithGoogle(_ sender: Any) {
-        switchToNavigationViewController()
+        GIDSignIn.sharedInstance().signIn()
     }
     
     func switchToNavigationViewController() {
