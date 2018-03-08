@@ -39,8 +39,19 @@ class ConnexionHelper {
             } else {
                 print(user!.displayName)
                 print(user!)
+                
+                self.saveUserData(uidExterne: user!.uid, displayName: user!.displayName!, email: user!.email!)
             }
         }
+    }
+    
+    func saveUserData(uidExterne: String, displayName: String, email: String) {
+        print("saveUserData")
+        
+        let newUser = Database.database().reference().child("users").childByAutoId()
+        newUser.setValue(["uidExterne":"\(uidExterne)","displayName":"\(displayName)","email":"\(email)"])
+        
+        switchToNavigationViewController()
     }
     
     func switchToNavigationViewController() {

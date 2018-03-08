@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E50E38F20507F8000E6178D /* ou.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E38C20507F7F00E6178D /* ou.png */; };
+		1E50E39020507F8000E6178D /* googleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E38D20507F8000E6178D /* googleButton.png */; };
+		1E50E3922050870700E6178D /* logoFacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E3912050870700E6178D /* logoFacebook.png */; };
 		316FE39725D1075B13077955 /* Pods_My_Car.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */; };
 		771CE97A204A091E00DC8EEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 771CE979204A091D00DC8EEF /* GoogleService-Info.plist */; };
 		771CE97C204B0E4A00DC8EEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771CE97B204B0E4A00DC8EEF /* LoginViewController.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E50E38C20507F7F00E6178D /* ou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ou.png; sourceTree = "<group>"; };
+		1E50E38D20507F8000E6178D /* googleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleButton.png; sourceTree = "<group>"; };
+		1E50E3912050870700E6178D /* logoFacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoFacebook.png; sourceTree = "<group>"; };
 		29AFF50AE81260A81D2DCBB8 /* Pods-My Car.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Car.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Car/Pods-My Car.release.xcconfig"; sourceTree = "<group>"; };
 		4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Car.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		771CE979204A091D00DC8EEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -101,6 +107,9 @@
 		D05B6A8B1ECE1FD300C7FE32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1E50E3912050870700E6178D /* logoFacebook.png */,
+				1E50E38D20507F8000E6178D /* googleButton.png */,
+				1E50E38C20507F7F00E6178D /* ou.png */,
 				7765880E204BFB5F001FBDE2 /* background.jpg */,
 			);
 			name = Images;
@@ -240,6 +249,9 @@
 				D0C86AD61EABDAC000534FB2 /* Assets.xcassets in Resources */,
 				7765880F204BFB5F001FBDE2 /* background.jpg in Resources */,
 				771CE97A204A091E00DC8EEF /* GoogleService-Info.plist in Resources */,
+				1E50E39020507F8000E6178D /* googleButton.png in Resources */,
+				1E50E38F20507F8000E6178D /* ou.png in Resources */,
+				1E50E3922050870700E6178D /* logoFacebook.png in Resources */,
 				D0C86AD41EABDAC000534FB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
