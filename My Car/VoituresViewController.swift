@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VoituresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -53,6 +54,22 @@ class VoituresViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Doit afficher le détail de la voiture
         print("Did select row at \(indexPath)")
+    }
+    
+    @IBAction func logOut(_ sender: Any) {
+        do {
+            // Deconnexion
+            try Auth.auth().signOut()
+            
+            // Redirection vers la vue de connexion
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let logInViewController = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = logInViewController
+        } catch let signOutError as NSError {
+            // Erreur de deconnexion
+            print("Error sign out: \(signOutError)")
+        }
     }
 }
 

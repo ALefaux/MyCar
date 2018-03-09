@@ -10,6 +10,8 @@ import Foundation
 import GoogleSignIn
 import FirebaseAuth
 import FirebaseDatabase
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ConnexionHelper {
     static let helper = ConnexionHelper()
@@ -20,36 +22,50 @@ class ConnexionHelper {
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                return
             } else {
                 print(user?.email ?? "User instance is nil")
                 print(user?.displayName ?? "User instance is nil")
                 
-                let newUser = Database.database().reference().child("utilisateurs").child(user!.uid)
-                newUser.setValue(["nom":"\(user!.displayName!)","id":"\(user!.uid)"])
-                
-                self.switchToNavigationViewController()
+                self.saveUserData(uid: user!.uid, displayName: user!.displayName!, email: user!.email!)
             }
         }
     }
     
-    func logInWithEmail(){
-        Auth.auth().signIn(withEmail: "", password: "") { (user, error) in
+    func logInWithFacebook(){
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            } else {
+                print(user?.email ?? "User instance is nil")
+                print(user?.displayName ?? "User instance is nil")
+                
+                self.saveUserData(uid: user!.uid, displayName: user!.displayName!, email: user!.email!)
+            }
+        }
+    }
+    
+    func logInWithEmail(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-                print(user!.displayName)
+                print(user!.displayName ?? "User instance is nil")
                 print(user!)
                 
-                self.saveUserData(uidExterne: user!.uid, displayName: user!.displayName!, email: user!.email!)
+                self.saveUserData(uid: user!.uid, displayName: user!.displayName!, email: user!.email!)
             }
         }
     }
     
-    func saveUserData(uidExterne: String, displayName: String, email: String) {
+    func saveUserData(uid: String, displayName: String, email: String) {
         print("saveUserData")
         
-        let newUser = Database.database().reference().child("users").childByAutoId()
-        newUser.setValue(["uidExterne":"\(uidExterne)","displayName":"\(displayName)","email":"\(email)"])
+        let newUser = Database.database().reference().child("users").child(uid)
+        newUser.setValue(["uidExterne":"\(uid)","displayName":"\(displayName)","email":"\(email)"])
         
         switchToNavigationViewController()
     }

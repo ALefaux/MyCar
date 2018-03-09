@@ -87,6 +87,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Voitures" id="9eV-9e-ptZ">
+                        <barButtonItem key="leftBarButtonItem" title="Déconnexion" id="40W-e9-xZs">
+                            <connections>
+                                <action selector="logOut:" destination="BYZ-38-t0r" id="TlM-oB-5XP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="57d-PP-AKe">
                             <connections>
                                 <segue destination="FG8-x0-IiG" kind="show" id="hEk-BR-jvu"/>
@@ -315,7 +320,7 @@
         <!--Login View Controller-->
         <scene sceneID="aK9-op-lmp">
             <objects>
-                <viewController id="7zI-Qk-klt" customClass="LoginViewController" customModule="My_Car" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="7zI-Qk-klt" customClass="LoginViewController" customModule="My_Car" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oys-Qb-QH4"/>
                         <viewControllerLayoutGuide type="bottom" id="wUA-6I-QBv"/>
@@ -345,7 +350,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginWithFacebook:" destination="7zI-Qk-klt" eventType="touchUpInside" id="QsH-bf-4xR"/>
+                                    <action selector="loginWithFacebook:" destination="7zI-Qk-klt" eventType="touchUpInside" id="fuT-xh-V6W"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ou.png" translatesAutoresizingMaskIntoConstraints="NO" id="Onx-E9-1U6">
@@ -403,6 +408,9 @@
                                 <state key="normal" title="Connexion">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logInWithEmail:" destination="7zI-Qk-klt" eventType="touchUpInside" id="NOu-bP-Ihr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyf-Dw-jFV">
                                 <rect key="frame" x="85" y="518" width="150" height="30"/>
@@ -440,6 +448,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="yJA-aM-yDS" id="fK1-GG-pPf"/>
                         <outlet property="loginByEmailButton" destination="LFi-WO-X2r" id="Sb1-jY-XQB"/>
+                        <outlet property="loginByFacebookButton" destination="ODL-o8-dto" id="Usk-VH-bbd"/>
                         <outlet property="passwordTextField" destination="H0a-kN-o2q" id="zh6-3c-jV2"/>
                     </connections>
                 </viewController>

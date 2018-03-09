@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate,
-        UITextFieldDelegate {
+UITextFieldDelegate {
+    @IBOutlet weak var loginByFacebookButton: FBSDKLoginButton!
     @IBOutlet weak var loginByEmailButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -33,6 +35,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        if Auth.auth().currentUser != nil {
+            ConnexionHelper.helper.switchToNavigationViewController()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -78,35 +84,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginWithFacebook(_ sender: Any) {
-        let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
-        
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                if (result?.isCancelled)! {
-                    return
-                }
-                
-                if let fbLoginResult = result as? FBSDKLoginManagerLoginResult {
-                    if fbLoginResult.grantedPermissions.contains("email") {
-                        if((FBSDKAccessToken.current()) != nil){
-                            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection, result, error) in
-                                if (error == nil){
-                                    //everything works print the user data
-                                    print(result)
-                                } else {
-                                    print(error!.localizedDescription)
-                                }
-                            })
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
     @IBAction func loginWithGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
@@ -120,6 +97,38 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         appDelegate.window?.rootViewController = navigationViewController
     }
     
+    @IBAction func loginWithFacebook(_ sender: Any) {
+        let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
+        
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if (result?.isCancelled)! {
+                    return
+                }
+                
+                if let fbLoginResult = result {
+                    if fbLoginResult.grantedPermissions.contains("email") {
+                        if((FBSDKAccessToken.current()) != nil){
+                            ConnexionHelper.helper.logInWithFacebook()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func logInWithEmail(_ sender: Any) {
+        let email = emailTextField.text
+        let password = passwordTextField.text
+        
+        if( email != nil && password != nil) {
+            ConnexionHelper.helper.logInWithEmail(email: email!, password: password!)
+        } else {
+            print("Champs vide login with email")
+        }
+    }
     /*
     // MARK: - Navigation
 
