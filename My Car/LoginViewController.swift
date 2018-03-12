@@ -37,7 +37,7 @@ UITextFieldDelegate {
         passwordTextField.delegate = self
         
         if Auth.auth().currentUser != nil {
-            ConnexionHelper.helper.switchToNavigationViewController()
+            ConnexionHelper.helper.switchToVoituresViewController()
         }
     }
     
@@ -88,15 +88,6 @@ UITextFieldDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    func switchToNavigationViewController() {
-        print("View change")
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationViewController = storyboard.instantiateViewController(withIdentifier: "NavigationViewController")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = navigationViewController
-    }
-    
     @IBAction func loginWithFacebook(_ sender: Any) {
         let fbLoginManager: FBSDKLoginManager = FBSDKLoginManager()
         
@@ -127,8 +118,17 @@ UITextFieldDelegate {
             ConnexionHelper.helper.logInWithEmail(email: email!, password: password!)
         } else {
             print("Champs vide login with email")
+            
+            let alert = UIAlertController(title: "Connexion impossible", message: "Les champs doivent être remplis pour la connexion.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: {
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
+            })
         }
     }
+    
     /*
     // MARK: - Navigation
 

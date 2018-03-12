@@ -49,16 +49,27 @@ class ConnexionHelper {
     }
     
     func logInWithEmail(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (userBase, error) in
             if error != nil {
                 print(error!.localizedDescription)
-            } else {
-                print(user!.displayName ?? "User instance is nil")
-                print(user!)
-                
-                self.saveUserData(uid: user!.uid, displayName: user!.displayName!, email: user!.email!)
+            } else if let user = userBase {
+                print(user.displayName ?? "User instance is nil")
+                print(user)
             }
         }
+    }
+    
+    func isValidEmail(testStr: String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    func isValidMotDePasse(motDePasseStr: String) -> Bool {
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$")
+        return passwordTest.evaluate(with: motDePasseStr)
     }
     
     func saveUserData(uid: String, displayName: String, email: String) {
@@ -67,14 +78,21 @@ class ConnexionHelper {
         let newUser = Database.database().reference().child("users").child(uid)
         newUser.setValue(["uidExterne":"\(uid)","displayName":"\(displayName)","email":"\(email)"])
         
-        switchToNavigationViewController()
+        switchToVoituresViewController()
     }
     
-    func switchToNavigationViewController() {
+    func switchToVoituresViewController() {
         print("View change")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navigationViewController = storyboard.instantiateViewController(withIdentifier: "NavigationViewController")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = navigationViewController
+    }
+    
+    func switchToLoginViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationViewController = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = navigationViewController
     }

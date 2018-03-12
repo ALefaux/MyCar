@@ -8,6 +8,9 @@
 
 import UIKit
 import MobileCoreServices
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class AddVoitureViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
@@ -20,6 +23,7 @@ class AddVoitureViewController: UIViewController, UITextFieldDelegate {
     
     var activeField: UITextField?
     var imagePicker = UIImagePickerController()
+    var imageVoitureHasChange : Bool = false
     
     @IBAction func chooseImageButtonClick() {
         print("Image picker")
@@ -33,8 +37,8 @@ class AddVoitureViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //NotificationCenter.default.addObserver(self, selector: #selector(AddVoitureViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(AddVoitureViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddVoitureViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddVoitureViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +62,8 @@ class AddVoitureViewController: UIViewController, UITextFieldDelegate {
             self.modeleTextField.becomeFirstResponder()
         case self.modeleTextField:
             self.plaqueTextField.becomeFirstResponder()
+        case self.plaqueTextField:
+            self.plaqueTextField.resignFirstResponder()
         default:
             self.nomTextField.becomeFirstResponder()
         }
@@ -89,17 +95,64 @@ class AddVoitureViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func ajouterVoiture(_ sender: Any) {
-        let idVoiture: Int = MyCarAPI.sharedInstance.getNbVoitures()
-        let nomVoiture: String = nomTextField.text!
-        let marqueVoiture: String = marqueTextField.text!
-        let modeleVoiture: String = modeleTextField.text!
-        let plaqueVoiture: String = plaqueTextField.text!
+        let nomVoiture: String? = nomTextField.text
+        let marqueVoiture: String? = marqueTextField.text
+        let modeleVoiture: String? = modeleTextField.text
+        let plaqueVoiture: String? = plaqueTextField.text
         
-        MyCarAPI.sharedInstance.addVoiture(voiture: Voiture(p_id: idVoiture, p_nom: nomVoiture, p_marque: marqueVoiture, p_modele: modeleVoiture, p_plaque: plaqueVoiture, p_image: "VoitureNoire.png"))
-        
-        self.viewDidDisappear(true)
+        if !Helper.instance.stringIsNulOrEmpty(string: nomVoiture)
+            && !Helper.instance.stringIsNulOrEmpty(string: marqueVoiture)
+            && !Helper.instance.stringIsNulOrEmpty(string: modeleVoiture)
+            && !Helper.instance.stringIsNulOrEmpty(string: plaqueVoiture) {
+            
+            if imageVoitureHasChange {
+//                self.uploadImage(image: chooseImageButton.currentImage!)
+                self.uploadImage(image: chooseImageButton.currentImage!, nom: nomVoiture!, marque: marqueVoiture!, modele: modeleVoiture!, plaque: plaqueVoiture!)
+            } else {
+                self.enregistrerVoiture(nom: nomVoiture!, marque: marqueVoiture!, modele: modeleVoiture!, plaque: plaqueVoiture!, url: nil)
+            }
+        } else {
+            let alert = UIAlertController(title: "Ajout impossible", message: "Les champs doivent tous être remplis.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-
+    
+    func uploadImage(image: UIImage, nom: String, marque: String, modele: String, plaque: String) {
+        if Auth.auth().currentUser != nil {
+            if let data = UIImageJPEGRepresentation(image, 0.1) {
+                let filepath = "\(Auth.auth().currentUser!.uid)/\(NSDate.timeIntervalSinceReferenceDate)"
+                let metadata = StorageMetadata()
+                metadata.contentType = "image/jpg"
+                Storage.storage().reference().child(filepath).putData(data, metadata: metadata, completion: { (metaData, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    
+                    if let metadata = metaData {
+                        if let url = metadata.downloadURL() {
+                            let urlImage = url.absoluteString
+                            self.enregistrerVoiture(nom: nom, marque: marque, modele: modele, plaque: plaque, url: urlImage)
+                        } else if let urls = metadata.downloadURLs {
+                            let urlImage = urls[0].absoluteString
+                            self.enregistrerVoiture(nom: nom, marque: marque, modele: modele, plaque: plaque, url: urlImage)
+                        }
+                        
+                        ConnexionHelper.helper.switchToVoituresViewController()
+                    }
+                })
+            }
+        } else {
+            print("Pas connecté")
+        }
+    }
+    
+    func enregistrerVoiture(nom: String, marque: String, modele: String, plaque: String, url: String?) {
+        let voiture = Database.database().reference().child("Voitures").childByAutoId()
+        voiture.setValue(["image":"\(url ?? "")", "nom":"\(nom)", "marque":"\(marque)", "modele":"\(modele)", "plaque":"\(plaque)"])
+    }
 }
 
 extension AddVoitureViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -108,9 +161,13 @@ extension AddVoitureViewController: UIImagePickerControllerDelegate, UINavigatio
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             chooseImageButton.setImage(image, for: UIControlState.normal)
+            
+            imageVoitureHasChange = true
             print("OriginalImage")
         } else if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
             chooseImageButton.setImage(image, for: UIControlState.normal)
+            
+            imageVoitureHasChange = true
             print("EditedImage")
         } else {
             print("Something went wrong")

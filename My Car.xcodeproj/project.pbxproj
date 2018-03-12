@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E234A7A20555D080022FEAC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E234A7920555D080022FEAC /* Helper.swift */; };
+		1E3E19E720544A4200F0AF6E /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3E19E620544A4200F0AF6E /* InscriptionViewController.swift */; };
 		1E50E38F20507F8000E6178D /* ou.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E38C20507F7F00E6178D /* ou.png */; };
 		1E50E39020507F8000E6178D /* googleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E38D20507F8000E6178D /* googleButton.png */; };
 		1E50E3922050870700E6178D /* logoFacebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E50E3912050870700E6178D /* logoFacebook.png */; };
@@ -16,8 +18,6 @@
 		7765880C204B264D001FBDE2 /* ConnexionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765880B204B264D001FBDE2 /* ConnexionHelper.swift */; };
 		7765880F204BFB5F001FBDE2 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7765880E204BFB5F001FBDE2 /* background.jpg */; };
 		D02E08EC1ED1D2B400AC908A /* Consommation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02E08EB1ED1D2B400AC908A /* Consommation.swift */; };
-		D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9541EE4607000725344 /* PersistencyManager.swift */; };
-		D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033D9561EE48BA900725344 /* MyCarAPI.swift */; };
 		D04F0BD11EE5CE390058314D /* AddVoitureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */; };
 		D05B6A9B1ED064D900C7FE32 /* VoitureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B6A9A1ED064D900C7FE32 /* VoitureTableViewCell.swift */; };
 		D05B6AA31ED1AF0D00C7FE32 /* Voiture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B6AA21ED1AF0D00C7FE32 /* Voiture.swift */; };
@@ -31,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E234A7920555D080022FEAC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1E3E19E620544A4200F0AF6E /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
 		1E50E38C20507F7F00E6178D /* ou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ou.png; sourceTree = "<group>"; };
 		1E50E38D20507F8000E6178D /* googleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googleButton.png; sourceTree = "<group>"; };
 		1E50E3912050870700E6178D /* logoFacebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoFacebook.png; sourceTree = "<group>"; };
@@ -42,8 +44,6 @@
 		7765880E204BFB5F001FBDE2 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		871F454262D366F5D7820DD0 /* Pods-My Car.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Car.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Car/Pods-My Car.debug.xcconfig"; sourceTree = "<group>"; };
 		D02E08EB1ED1D2B400AC908A /* Consommation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consommation.swift; sourceTree = "<group>"; };
-		D033D9541EE4607000725344 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
-		D033D9561EE48BA900725344 /* MyCarAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarAPI.swift; sourceTree = "<group>"; };
 		D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVoitureViewController.swift; sourceTree = "<group>"; };
 		D05B6A9A1ED064D900C7FE32 /* VoitureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoitureTableViewCell.swift; sourceTree = "<group>"; };
 		D05B6AA21ED1AF0D00C7FE32 /* Voiture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voiture.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				7765880B204B264D001FBDE2 /* ConnexionHelper.swift */,
+				1E234A7920555D080022FEAC /* Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -93,15 +94,6 @@
 				4FA54A8EFE6D8349CA155F71 /* Pods_My_Car.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D02E08EF1ED217FE00AC908A /* API */ = {
-			isa = PBXGroup;
-			children = (
-				D033D9541EE4607000725344 /* PersistencyManager.swift */,
-				D033D9561EE48BA900725344 /* MyCarAPI.swift */,
-			);
-			name = API;
 			sourceTree = "<group>";
 		};
 		D05B6A8B1ECE1FD300C7FE32 /* Images */ = {
@@ -121,6 +113,7 @@
 				D0C86AD01EABDAC000534FB2 /* VoituresViewController.swift */,
 				D04F0BD01EE5CE390058314D /* AddVoitureViewController.swift */,
 				771CE97B204B0E4A00DC8EEF /* LoginViewController.swift */,
+				1E3E19E620544A4200F0AF6E /* InscriptionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -167,7 +160,6 @@
 			children = (
 				7765880A204B2620001FBDE2 /* Helpers */,
 				D07D7D471ED4C84F00E620B0 /* View */,
-				D02E08EF1ED217FE00AC908A /* API */,
 				D05B6AA11ED1AEDB00C7FE32 /* Models */,
 				D05B6A9C1ED19AA800C7FE32 /* Controllers */,
 				D05B6A8B1ECE1FD300C7FE32 /* Images */,
@@ -335,14 +327,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D02E08EC1ED1D2B400AC908A /* Consommation.swift in Sources */,
+				1E234A7A20555D080022FEAC /* Helper.swift in Sources */,
 				D04F0BD11EE5CE390058314D /* AddVoitureViewController.swift in Sources */,
 				D0C86AD11EABDAC000534FB2 /* VoituresViewController.swift in Sources */,
 				D05B6AA31ED1AF0D00C7FE32 /* Voiture.swift in Sources */,
 				D0C86ACF1EABDAC000534FB2 /* AppDelegate.swift in Sources */,
 				D07D7D491ED4CA0B00E620B0 /* ConsommationTableViewCell.swift in Sources */,
 				D05B6A9B1ED064D900C7FE32 /* VoitureTableViewCell.swift in Sources */,
-				D033D9551EE4607000725344 /* PersistencyManager.swift in Sources */,
-				D033D9571EE48BA900725344 /* MyCarAPI.swift in Sources */,
+				1E3E19E720544A4200F0AF6E /* InscriptionViewController.swift in Sources */,
 				7765880C204B264D001FBDE2 /* ConnexionHelper.swift in Sources */,
 				D0FF53201EF1BA410045FCD0 /* VoitureCollectionViewCell.swift in Sources */,
 				771CE97C204B0E4A00DC8EEF /* LoginViewController.swift in Sources */,

@@ -8,23 +8,53 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class VoituresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableViewVoitures: UITableView!
     
     var listeVoitures: [Voiture] = []
+    var refVoitures: DatabaseReference = Database.database().reference().child("Voitures")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //listeVoitures = MyCarAPI.sharedInstance.getVoitures()
+    }
+    
+    func observeVoiture() {
+        if Auth.auth().currentUser != nil {
+            refVoitures.observe(.childAdded, with: { snapshot in
+                if !snapshot.exists() {
+                    return
+                }
+                
+                if let dict = snapshot.value as? [String: AnyObject] {
+                    var url = dict["image"] as? String
+                    let nom = dict["nom"] as? String
+                    let marque = dict["marque"] as? String
+                    let modele = dict["modele"] as? String
+                    let plaque = dict["plaque"] as? String
+                    var isUrl = true
+                    
+                    if Helper.instance.stringIsNulOrEmpty(string: url) {
+                        url = "VoitureNoire"
+                        isUrl = false
+                    }
+                    
+                    self.listeVoitures.append(Voiture(p_id: "\(snapshot.key)", p_nom: nom!, p_marque: marque!, p_modele: modele!, p_plaque: plaque!, p_image: url!, p_isUrl: isUrl))
+                    
+                    self.tableViewVoitures.reloadData()
+                }
+            })
+        } else {
+            ConnexionHelper.helper.switchToLoginViewController()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        listeVoitures = MyCarAPI.sharedInstance.getVoitures()
-        tableViewVoitures.reloadData()
+//        self.listeVoitures = MyCarAPI.sharedInstance.getVoitures()
+        self.observeVoiture()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +73,14 @@ class VoituresViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: VoitureTableViewCell = self.tableViewVoitures.dequeueReusableCell(withIdentifier: "VoitureCell") as! VoitureTableViewCell
-        cell.imageVoiture.image = UIImage(named:self.listeVoitures[indexPath.row].image)
+        
+        if self.listeVoitures[indexPath.row].isUrl {
+            let data = try? Data(contentsOf: URL(string: self.listeVoitures[indexPath.row].image)!)
+            cell.imageVoiture.image = UIImage(data: data!)
+        } else {
+            cell.imageVoiture.image = UIImage(named:self.listeVoitures[indexPath.row].image)
+        }
+        
         cell.labelMarqueModelVoiture.text = self.listeVoitures[indexPath.row].marque + " " + self.listeVoitures[indexPath.row].modele
         cell.labelNomVoiture.text = self.listeVoitures[indexPath.row].nom
         cell.labelPlaqueVoiture.text = self.listeVoitures[indexPath.row].plaque
@@ -62,10 +99,7 @@ class VoituresViewController: UIViewController, UITableViewDelegate, UITableView
             try Auth.auth().signOut()
             
             // Redirection vers la vue de connexion
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let logInViewController = storyboard.instantiateViewController(withIdentifier: "LogInViewController")
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = logInViewController
+            ConnexionHelper.helper.switchToLoginViewController()
         } catch let signOutError as NSError {
             // Erreur de deconnexion
             print("Error sign out: \(signOutError)")
