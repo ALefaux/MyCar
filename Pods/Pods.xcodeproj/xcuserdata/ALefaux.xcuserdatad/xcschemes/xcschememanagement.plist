@@ -7,7 +7,7 @@
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
@@ -34,10 +34,20 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Pods-My Car.xcscheme</key>
+		<key>Pods-MyCar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>Pods-MyCarTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Pods-MyCarUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

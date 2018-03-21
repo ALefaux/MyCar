@@ -34,7 +34,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-My Car.xcscheme</key>
+		<key>Pods-MyCar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MyCarTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MyCarUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
