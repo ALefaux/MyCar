@@ -14,6 +14,8 @@ target 'MyCar' do
     pod 'FBSDKLoginKit'
     pod 'Fabric', '~> 1.7.5'
     pod 'Crashlytics', '~> 3.10.1'
+    pod 'SwiftMessages'
+    pod 'FoldingCell'
   # Pods for MyCar
 
   target 'MyCarTests' do
